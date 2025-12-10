@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadoras</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="layout">
+
+    <!-- NAVBAR LATERAL -->
+    <aside class="sidebar">
+        <h2>Calculadoras</h2>
+        <ul>
+            <li><a th:href="@{/}">Inicio</a></li>
+            <li><a th:href="@{/calculadora/basica}">Estándar</a></li>
+            <li><a class="disabled">Científica (próx.)</a></li>
+            <li><a class="disabled">Programadora (próx.)</a></li>
+            <li><a class="disabled">Conversores (próx.)</a></li>
+        </ul>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="content">
+        <h1>Bienvenido a las Calculadoras</h1>
+        <p>Selecciona una calculadora en el menú lateral para comenzar.</p>
+    </main>
+
+</div>
+
+</body>
+</html>

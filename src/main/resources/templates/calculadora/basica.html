@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora Estándar</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="layout">
+
+    <!-- NAVBAR LATERAL -->
+    <aside class="sidebar">
+        <h2>Calculadoras</h2>
+        <ul>
+            <li><a th:href="@{/}">Inicio</a></li>
+            <li><a th:href="@{/calculadora/basica}">Estándar</a></li>
+            <li><a class="disabled">Científica (próx.)</a></li>
+            <li><a class="disabled">Programadora (próx.)</a></li>
+            <li><a class="disabled">Conversores (próx.)</a></li>
+        </ul>
+    </aside>
+
+    <!-- CONTENIDO -->
+    <main class="content">
+
+        <h1>Calculadora Estándar</h1>
+
+        <form method="post">
+
+            <!-- Variables ocultas que mantienen el estado -->
+            <input type="hidden" name="operando1" th:value="${operando1}">
+            <input type="hidden" name="operador" th:value="${operador}">
+
+            <!-- Display -->
+            <input class="display" type="text" name="display" th:value="${display}" readonly>
+
+            <!-- Botonera -->
+            <div class="grid">
+
+                <!-- Primera fila -->
+                <button formaction="/calculadora/basica/input" name="valor" value="7">7</button>
+                <button formaction="/calculadora/basica/input" name="valor" value="8">8</button>
+                <button formaction="/calculadora/basica/input" name="valor" value="9">9</button>
+                <button formaction="/calculadora/basica/op" name="op" value="/">/</button>
+
+                <!-- Segunda fila -->
+                <button formaction="/calculadora/basica/input" name="valor" value="4">4</button>
+                <button formaction="/calculadora/basica/input" name="valor" value="5">5</button>
+                <button formaction="/calculadora/basica/input" name="valor" value="6">6</button>
+                <button formaction="/calculadora/basica/op" name="op" value="*">*</button>
+
+                <!-- Tercera fila -->
+                <button formaction="/calculadora/basica/input" name="valor" value="1">1</button>
+                <button formaction="/calculadora/basica/input" name="valor" value="2">2</button>
+                <button formaction="/calculadora/basica/input" name="valor" value="3">3</button>
+                <button formaction="/calculadora/basica/op" name="op" value="-">-</button>
+
+                <!-- Cuarta fila -->
+                <button formaction="/calculadora/basica/input" name="valor" value="0">0</button>
+                <button formaction="/calculadora/basica/op" name="op" value="+">+</button>
+                <button formaction="/calculadora/basica/igual">=</button>
+                <button formaction="/calculadora/basica/clear">C</button>
+            </div>
+
+        </form>
+
+    </main>
+</div>
+
+</body>
+</html>
