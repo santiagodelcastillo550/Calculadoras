@@ -102,3 +102,65 @@ button.clear {
 button.clear:hover {
     background: #ff6666;
 }
+
+/* CALCULADORA CIENTIFICA */
+
+.cientifica-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+.cientifica-content {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    padding: 20px;
+    flex: 1;
+}
+
+.cientifica-left-panel {
+    flex: 1;
+}
+
+.cientifica-right-panel {
+    flex: 1;
+}
+
+.cientifica-title {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.cientifica-display {
+    width: 100%;
+    font-size: 1.5em;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.cientifica-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 60px);
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.cientifica-group {
+    margin-bottom: 25px;
+}
+
+.cientifica-group h3 {
+    cursor: pointer;
+    background: #ddd;
+    padding: 5px;
+    border-radius: 4px;
+    margin: 0;
+}
+
+.cientifica-group h3:hover {
+    background: #bbb;
+}
+
+

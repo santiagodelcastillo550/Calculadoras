@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora Científica</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script>
+        function toggleGroup(id) {
+            const group = document.getElementById(id);
+            group.style.display = (group.style.display === "none") ? "grid" : "none";
+        }
+    </script>
+</head>
+<body>
+<div class="cientifica-wrapper">
+    <aside class="sidebar">
+        <h2>Calculadoras</h2>
+        <ul>
+            <li><a th:href="@{/}">Inicio</a></li>
+            <li><a th:href="@{/calculadora/basica}">Estándar</a></li>
+            <li><a th:href="@{/calculadora/cientifica}">Científica</a></li>
+            <li><a class="disabled">Programadora (próx.)</a></li>
+            <li><a class="disabled">Conversores (próx.)</a></li>
+        </ul>
+    </aside>
+
+    <main class="cientifica-content">
+        <form method="post" class="cientifica-left-panel">
+            <h1 class="cientifica-title">Calculadora Científica</h1>
+            <input class="cientifica-display" type="text" name="display" th:value="${display}" readonly>
+
+            <div class="cientifica-grid">
+                <button formaction="/calculadora/cientifica/input" name="valor" value="7">7</button>
+                <button formaction="/calculadora/cientifica/input" name="valor" value="8">8</button>
+                <button formaction="/calculadora/cientifica/input" name="valor" value="9">9</button>
+                <button formaction="/calculadora/cientifica/input" name="valor" value="4">4</button>
+                <button formaction="/calculadora/cientifica/input" name="valor" value="5">5</button>
+                <button formaction="/calculadora/cientifica/input" name="valor" value="6">6</button>
+                <button formaction="/calculadora/cientifica/input" name="valor" value="1">1</button>
+                <button formaction="/calculadora/cientifica/input" name="valor" value="2">2</button>
+                <button formaction="/calculadora/cientifica/input" name="valor" value="3">3</button>
+                <button formaction="/calculadora/cientifica/input" name="valor" value="0">0</button>
+                <button formaction="/calculadora/cientifica/igual">=</button>
+                <button formaction="/calculadora/cientifica/clear">C</button>
+            </div>
+        </form>
+
+        <div class="cientifica-right-panel">
+            <div class="cientifica-group">
+                <h3 onclick="toggleGroup('trigo')">Trigonometría ▼</h3>
+                <div id="trigo" class="cientifica-grid" style="display:none;">
+                    <button formaction="/calculadora/cientifica/input" name="valor" value="tan(">tan</button>
+                    <button formaction="/calculadora/cientifica/input" name="valor" value="sin(">sin</button>
+                    <button formaction="/calculadora/cientifica/input" name="valor" value="cos(">cos</button>
+                </div>
+            </div>
+
+            <div class="cientifica-group">
+                <h3 onclick="toggleGroup('logs')">Logaritmos ▼</h3>
+                <div id="logs" class="cientifica-grid" style="display:none;">
+                    <button formaction="/calculadora/cientifica/input" name="valor" value="log(">log</button>
+                    <button formaction="/calculadora/cientifica/input" name="valor" value="ln(">ln</button>
+                </div>
+            </div>
+
+            <div class="cientifica-group">
+                <h3 onclick="toggleGroup('potencias')">Potencias ▼</h3>
+                <div id="potencias" class="cientifica-grid" style="display:none;">
+                    <button formaction="/calculadora/cientifica/input" name="valor" value="^2">x²</button>
+                    <button formaction="/calculadora/cientifica/input" name="valor" value="^3">x³</button>
+                </div>
+            </div>
+
+            <div class="cientifica-group">
+                <h3 onclick="toggleGroup('raices')">Raíz ▼</h3>
+                <div id="raices" class="cientifica-grid" style="display:none;">
+                    <button formaction="/calculadora/cientifica/input" name="valor" value="sqrt(">√</button>
+                </div>
+            </div>
+
+            <div class="cientifica-group">
+                <h3 onclick="toggleGroup('constantes')">Constantes y factorial ▼</h3>
+                <div id="constantes" class="cientifica-grid" style="display:none;">
+                    <button formaction="/calculadora/cientifica/input" name="valor" value="pi">π</button>
+                    <button formaction="/calculadora/cientifica/input" name="valor" value="e">e</button>
+                    <button formaction="/calculadora/cientifica/input" name="valor" value="fact(">n!</button>
+                </div>
+            </div>
+
+            <div class="cientifica-group">
+                <h3 onclick="toggleGroup('modo')">Modo ▼</h3>
+                <div id="modo" class="cientifica-grid" style="display:none;">
+                    <button formaction="/calculadora/cientifica/input" name="valor" value="RAD">RAD</button>
+                    <button formaction="/calculadora/cientifica/input" name="valor" value="DEG">DEG</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>
