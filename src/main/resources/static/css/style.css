@@ -104,7 +104,6 @@ button.clear:hover {
 }
 
 /* CALCULADORA CIENTIFICA */
-
 .cientifica-wrapper {
     display: flex;
     min-height: 100vh;
@@ -114,8 +113,9 @@ button.clear:hover {
     display: flex;
     flex-direction: row;
     gap: 40px;
-    padding: 20px;
+    padding: 40px;
     flex: 1;
+    margin-left: 260px; /* espacio para la sidebar fija */
 }
 
 .cientifica-left-panel {
@@ -128,35 +128,37 @@ button.clear:hover {
 
 .cientifica-title {
     font-size: 1.8em;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .cientifica-display {
-    width: 100%;
-    font-size: 1.5em;
+    width: 240px;
+    font-size: 28px;
     padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    margin-bottom: 20px;
+    background: #ffffff;
+    border: 2px solid #bbb;
+    border-radius: 8px;
 }
 
 .cientifica-grid {
     display: grid;
-    grid-template-columns: repeat(3, 60px);
-    gap: 10px;
-    margin-bottom: 10px;
+    grid-template-columns: repeat(4, 60px); /* igual que la básica */
+    grid-gap: 12px;
+    margin-bottom: 20px;
 }
 
 .cientifica-group {
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
 .cientifica-group h3 {
     cursor: pointer;
     background: #ddd;
-    padding: 5px;
-    border-radius: 4px;
+    padding: 8px;
+    border-radius: 6px;
     margin: 0;
+    font-size: 18px;
 }
 
 .cientifica-group h3:hover {

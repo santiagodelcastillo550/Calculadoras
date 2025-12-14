@@ -13,39 +13,43 @@ public class CientificaService {
         return display + valor;
     }
 
-    public String calcular(String display) {
-        try {
-            // Definimos funciones adicionales
-            Function factorial = new Function("fact", 1) {
-                @Override
-                public double apply(double... args) {
-                    int n = (int) args[0];
-                    double result = 1;
-                    for (int i = 2; i <= n; i++) {
-                        result *= i;
-                    }
-                    return result;
-                }
-            };
+	public String calcular(String display) {
+	    try {
+	        // Función factorial
+	        Function factorial = new Function("fact", 1) {
+	            @Override
+	            public double apply(double... args) {
+	                int n = (int) args[0];
+	                double result = 1;
+	                for (int i = 2; i <= n; i++) {
+	                    result *= i;
+	                }
+	                return result;
+	            }
+	        };
 
-            Function root = new Function("root", 2) {
-                @Override
-                public double apply(double... args) {
-                    return Math.pow(args[1], 1.0 / args[0]);
-                }
-            };
+	        // Función raíz n-ésima
+	        Function root = new Function("root", 2) {
+	            @Override
+	            public double apply(double... args) {
+	                return Math.pow(args[1], 1.0 / args[0]);
+	            }
+	        };
 
-            Expression expression = new ExpressionBuilder(display)
-                    .functions(factorial, root)
-                    .variables("pi", "e")
-                    .build()
-                    .setVariable("pi", Math.PI)
-                    .setVariable("e", Math.E);
+	        // Construimos la expresión
+	        Expression expression = new ExpressionBuilder(display)
+	                // exp4j ya soporta sin, cos, tan, log, ln, sqrt, potencias (^)
+	                .functions(factorial, root)
+	                .variables("pi", "e")
+	                .build()
+	                .setVariable("pi", Math.PI)
+	                .setVariable("e", Math.E);
 
-            double result = expression.evaluate();
-            return String.valueOf(result);
-        } catch (Exception e) {
-            return "Error";
-        }
-    }
+	        double result = expression.evaluate();
+	        return String.valueOf(result);
+	    } catch (Exception e) {
+	        return "Error";
+	    }
+	}
+
 }
