@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora Programadora</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{/js/programadora.js}"></script>
+</head>
+<body>
+<div class="programadora-wrapper">
+    <aside class="sidebar">
+        <h2>Calculadoras</h2>
+        <ul>
+            <li><a th:href="@{/}">Inicio</a></li>
+            <li><a th:href="@{/calculadora/basica}">Estándar</a></li>
+            <li><a th:href="@{/calculadora/cientifica}">Científica</a></li>
+            <li><a th:href="@{/calculadora/programadora}">Programadora</a></li>
+            <li><a class="disabled">Conversores (próx.)</a></li>
+        </ul>
+    </aside>
+
+    <main class="programadora-content">
+        <h1>Calculadora Programadora</h1>
+        <form method="post" action="/calculadora/programadora/convert">
+            <div class="programadora-grid">
+                <label>Decimal:
+                    <input id="decimal" name="valor" th:value="${decimal}" oninput="updateFromDecimal()">
+                    <button type="button" onclick="copiar('decimal')">Copiar</button>
+                    <input type="hidden" name="tipo" value="decimal">
+                </label>
+                <label>Binario:
+                    <input id="binario" name="valor" th:value="${binario}" oninput="updateFromBinario()">
+                    <button type="button" onclick="copiar('binario')">Copiar</button>
+                    <input type="hidden" name="tipo" value="binario">
+                </label>
+                <label>Hexadecimal:
+                    <input id="hexadecimal" name="valor" th:value="${hexadecimal}" oninput="updateFromHexadecimal()">
+                    <button type="button" onclick="copiar('hexadecimal')">Copiar</button>
+                    <input type="hidden" name="tipo" value="hexadecimal">
+                </label>
+                <label>Octal:
+                    <input id="octal" name="valor" th:value="${octal}" oninput="updateFromOctal()">
+                    <button type="button" onclick="copiar('octal')">Copiar</button>
+                    <input type="hidden" name="tipo" value="octal">
+                </label>
+            </div>
+        </form>
+    </main>
+</div>
+</body>
+</html>

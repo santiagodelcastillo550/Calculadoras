@@ -165,4 +165,66 @@ button.clear:hover {
     background: #bbb;
 }
 
+/* === Calculadora Programadora === */
+
+.programadora-wrapper {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.programadora-content {
+    flex: 1;
+    padding: 40px;
+    margin-left:260px;
+}
+
+.programadora-content h1 {
+    margin-top: 0;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Grid de campos de conversión */
+.programadora-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    max-width: 420px;
+}
+
+.programadora-grid label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 12px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.programadora-grid input {
+    flex: 1;
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 1em;
+}
+
+.programadora-grid button {
+    background-color: #0078d7;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.programadora-grid button:hover {
+    background-color: #005fa3;
+}
 
