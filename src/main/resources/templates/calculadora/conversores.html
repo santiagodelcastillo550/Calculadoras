@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Conversores</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{/js/conversores.js}"></script>
+</head>
+<body>
+<div class="conversores-wrapper">
+    <aside class="sidebar">
+        <h2>Calculadoras</h2>
+        <ul>
+            <li><a th:href="@{/}">Inicio</a></li>
+            <li><a th:href="@{/calculadora/basica}">Estándar</a></li>
+            <li><a th:href="@{/calculadora/cientifica}">Científica</a></li>
+            <li><a th:href="@{/calculadora/programadora}">Programadora</a></li>
+            <li><a th:href="@{/calculadora/conversores}">Conversores</a></li>
+        </ul>
+    </aside>
+
+    <main class="conversores-content">
+        <h1>Conversores</h1>
+        <form method="post" th:action="@{/calculadora/conversores/convert}">
+            <label>Categoría:
+                <select id="categoria" name="categoria" onchange="updateConversion()">
+                    <option value="temperatura" th:selected="${categoria == 'temperatura'}">Temperatura</option>
+                    <option value="longitud" th:selected="${categoria == 'longitud'}">Longitud</option>
+                    <option value="peso" th:selected="${categoria == 'peso'}">Peso</option>
+                    <option value="tiempo" th:selected="${categoria == 'tiempo'}">Tiempo</option>
+                    <option value="moneda" th:selected="${categoria == 'moneda'}">Moneda</option>
+                </select>
+            </label>
+            <div class="conversores-grid">
+                <input id="entrada" name="entrada" th:value="${entrada}" oninput="updateConversion()">
+                <input id="salida" name="salida" th:value="${salida}" readonly>
+            </div>
+            <div class="conversores-info">
+                <p id="conversion-descripcion" th:text="${descripcion}"></p>
+            </div>
+        </form>
+    </main>
+</div>
+</body>
+</html>
