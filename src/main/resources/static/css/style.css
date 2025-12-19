@@ -274,8 +274,15 @@ button.clear:hover {
     max-width: 400px;
 }
 
-.conversores-grid input {
-    padding: 10px;
+.conversores-grid label {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+.conversores-grid input,
+.conversores-grid select {
+    padding: 8px;
     font-size: 1em;
     border: 1px solid #ccc;
     border-radius: 6px;
@@ -283,7 +290,8 @@ button.clear:hover {
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-/* Texto de descripción */
 .conversores-info {
     margin-top: 15px;
+    font-size: 0.95em;
+    color: #555;
 }

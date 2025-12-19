@@ -23,7 +23,7 @@
         <h1>Conversores</h1>
         <form method="post" th:action="@{/calculadora/conversores/convert}">
             <label>Categoría:
-                <select id="categoria" name="categoria" onchange="updateConversion()">
+                <select id="categoria" name="categoria" onchange="onCategoryChange()">
                     <option value="temperatura" th:selected="${categoria == 'temperatura'}">Temperatura</option>
                     <option value="longitud" th:selected="${categoria == 'longitud'}">Longitud</option>
                     <option value="peso" th:selected="${categoria == 'peso'}">Peso</option>
@@ -31,12 +31,26 @@
                     <option value="moneda" th:selected="${categoria == 'moneda'}">Moneda</option>
                 </select>
             </label>
-            <div class="conversores-grid">
-                <input id="entrada" name="entrada" th:value="${entrada}" oninput="updateConversion()">
-                <input id="salida" name="salida" th:value="${salida}" readonly>
-            </div>
-            <div class="conversores-info">
-                <p id="conversion-descripcion" th:text="${descripcion}"></p>
+            <div class="conversores-grid"> 
+            	<label>Valor: 
+            		<input id="entrada" name="entrada" th:value="${entrada}"> 
+            	</label> 
+            	
+            	<label>Unidad origen: 
+            		<select id="unidadEntrada"></select>
+            	</label> 
+            	
+            	<label>Unidad destino: 
+            		<select id="unidadSalida"></select> 
+            	</label> 
+            	
+            	<label>Resultado: 
+            		<input id="salida" name="salida" th:value="${salida}" readonly> 
+            	</label> 
+            </div> 
+            
+            <div class="conversores-info"> 
+            	<p id="conversion-descripcion" th:text="${descripcion}"></p> 
             </div>
         </form>
     </main>
